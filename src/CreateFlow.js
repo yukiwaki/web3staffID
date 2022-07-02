@@ -12,27 +12,6 @@ import "./createFlow.css";
 import { ethers } from "ethers";
 
 
-  const Minter = (props) => {
-    const [walletAddress, setWallet] = useState("");
-    const [status, setStatus] = useState("");
-
-    const [name, setName] = useState("");
-    const [team, setTeam] = useState("");
-    const [role, setRole] = useState("");
-    const [companyUrl, setURL] = useState("");
-    const [startDate, setRole] = useState(""); 
-    const [receipientAddress, setRole] = useState(""); 
-
-    useEffect(async () => {
-      const { address, status } = await getCurrentWalletConnected();
-
-      setWallet(address);
-      setStatus(status);
-
-      addWalletListener();
-    }, []);
-  };
-
 // let account;
 
 //where the Superfluid logic takes place
@@ -87,6 +66,12 @@ export const CreateFlow = () => {
   const [flowRate, setFlowRate] = useState("");
   const [flowRateDisplay, setFlowRateDisplay] = useState("");
   const [currentAccount, setCurrentAccount] = useState("");
+
+  const [name, setName] = useState("");
+  const [team, setTeam] = useState("");
+  const [role, setRole] = useState("");
+  const [companyUrl, setURL] = useState("");
+  const [startDate, setStartDate] = useState(""); 
 
   const connectWallet = async () => {
     try {
@@ -173,6 +158,11 @@ export const CreateFlow = () => {
     let newFlowRateDisplay = calculateFlowRate(e.target.value);
     setFlowRateDisplay(newFlowRateDisplay.toString());
   };
+
+  const nameChange = (e) => {
+    setName(() => ([e.target.name] = e.target.value));
+  };
+
 
   return (
     <div>
