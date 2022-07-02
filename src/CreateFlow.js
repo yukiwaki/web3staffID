@@ -11,6 +11,28 @@ import {
 import "./createFlow.css";
 import { ethers } from "ethers";
 
+
+  const Minter = (props) => {
+    const [walletAddress, setWallet] = useState("");
+    const [status, setStatus] = useState("");
+
+    const [name, setName] = useState("");
+    const [team, setTeam] = useState("");
+    const [role, setRole] = useState("");
+    const [companyUrl, setURL] = useState("");
+    const [startDate, setRole] = useState(""); 
+    const [receipientAddress, setRole] = useState(""); 
+
+    useEffect(async () => {
+      const { address, status } = await getCurrentWalletConnected();
+
+      setWallet(address);
+      setStatus(status);
+
+      addWalletListener();
+    }, []);
+  };
+
 // let account;
 
 //where the Superfluid logic takes place
@@ -167,6 +189,7 @@ export const CreateFlow = () => {
         </Card>
       )}
       <Form>
+        <h2>Receipient wallet address </h2>
         <FormGroup className="mb-3">
           <FormControl
             name="recipient"
