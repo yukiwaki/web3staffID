@@ -159,10 +159,25 @@ export const CreateFlow = () => {
     setFlowRateDisplay(newFlowRateDisplay.toString());
   };
 
-  const nameChange = (e) => {
+  const handleNameChange = (e) => {
     setName(() => ([e.target.name] = e.target.value));
   };
 
+  const handleTeamChange = (e) => {
+    setTeam(() => ([e.target.name] = e.target.value));
+  };
+
+  const handleRoleChange = (e) => {
+    setRole(() => ([e.target.name] = e.target.value));
+  };
+
+  const handleUrlChange = (e) => {
+    setURL(() => ([e.target.name] = e.target.value));
+  };
+
+  const handleStartDateChange = (e) => {
+    setStartDate(() => ([e.target.name] = e.target.value));
+  };
 
   return (
     <div>
@@ -179,15 +194,27 @@ export const CreateFlow = () => {
         </Card>
       )}
       <Form>
-        <h2>Receipient wallet address </h2>
+        <h3>Staff Name</h3>
+        <FormGroup className="mb-3">
+          <FormControl
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            placeholder="Name"
+          ></FormControl>
+        </FormGroup>
+
+        <h3>Receipient wallet address</h3>
         <FormGroup className="mb-3">
           <FormControl
             name="recipient"
             value={recipient}
             onChange={handleRecipientChange}
-            placeholder="Enter recipient address"
+            placeholder="Recipient address"
           ></FormControl>
         </FormGroup>
+
+        <h3>Salary (wei/second)</h3>
         <FormGroup className="mb-3">
           <FormControl
             name="flowRate"
