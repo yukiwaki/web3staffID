@@ -8,6 +8,9 @@ import {
   Spinner,
   Card
 } from "react-bootstrap";
+import {
+  mintNFT,
+} from "./util/interact.js";
 import "./createFlow.css";
 import { ethers } from "ethers";
 
@@ -124,6 +127,16 @@ export const CreateFlow = () => {
   useEffect(() => {
     checkIfWalletIsConnected();
   }, []);
+
+  const onMintPressed = async () => {
+    const { success } = await mintNFT(name, team, role, startDate);
+    if (success) {
+      setName("");
+      setTeam("");
+      setRole("");
+      setStartDate("");
+    }
+  };
 
   function calculateFlowRate(amount) {
     if (typeof Number(amount) !== "number" || isNaN(Number(amount)) === true) {
@@ -249,6 +262,9 @@ export const CreateFlow = () => {
             placeholder="Enter a flowRate in wei/second"
           ></FormControl>
         </FormGroup>
+        <button id="mintButton" onClick={onMintPressed}>
+        Mint NFT
+        </button>
         <CreateButton
           onClick={() => {
             setIsButtonLoading(true);
