@@ -9,7 +9,7 @@ import {
   Card
 } from "react-bootstrap";
 import {
-  mintNFT,
+  mint,
 } from "./util/interact.js";
 import "./createFlow.css";
 import { ethers } from "ethers";
@@ -129,7 +129,7 @@ export const CreateFlow = () => {
   }, []);
 
   const onMintPressed = async () => {
-    const { success } = await mintNFT(name, team, role, startDate);
+    const { success } = await mint(name, team, role, startDate);
     if (success) {
       setName("");
       setTeam("");

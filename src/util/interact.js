@@ -6,7 +6,7 @@ const contractAddress = "0x4D445DB730D0Fe5266994e7df4817ef0F8E9bbaA";
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey);
 
-export const mintNFT = async (name, team, role, startDate) => {
+export const mint = async (name, team, role, startDate) => {
     if (name.trim() == "" || team.trim() == "" || role.trim() == "" || startDate.trim() == "") {
       return {
         success: false,
@@ -36,7 +36,7 @@ export const mintNFT = async (name, team, role, startDate) => {
       to: contractAddress, // Required except during contract publications.
       from: window.ethereum.selectedAddress, // must match user's active address.
       data: window.contract.methods
-        .mintNFT(window.ethereum.selectedAddress, tokenURI)
+        .mint(window.ethereum.selectedAddress, tokenURI)
         .encodeABI(),
     };
   
