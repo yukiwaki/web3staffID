@@ -45,7 +45,7 @@ async function createNewFlow(recipient, flowRate) {
     console.log(
       `Congrats - you've just created a money stream!
     View Your Stream At: https://app.superfluid.finance/dashboard/${recipient}
-    Network: Kovan
+    Network: Goelri
     Super Token: DAIx
     Sender: 0xDCB45e4f6762C3D7C61a00e96Fb94ADb7Cf27721
     Receiver: ${recipient},
@@ -70,7 +70,6 @@ export const CreateFlow = () => {
   const [name, setName] = useState("");
   const [team, setTeam] = useState("");
   const [role, setRole] = useState("");
-  const [companyUrl, setURL] = useState("");
   const [startDate, setStartDate] = useState(""); 
 
   const connectWallet = async () => {
@@ -171,10 +170,6 @@ export const CreateFlow = () => {
     setRole(() => ([e.target.name] = e.target.value));
   };
 
-  const handleUrlChange = (e) => {
-    setURL(() => ([e.target.name] = e.target.value));
-  };
-
   const handleStartDateChange = (e) => {
     setStartDate(() => ([e.target.name] = e.target.value));
   };
@@ -203,6 +198,37 @@ export const CreateFlow = () => {
             placeholder="Name"
           ></FormControl>
         </FormGroup>
+
+        <h3>Team</h3>
+        <FormGroup className="mb-3">
+          <FormControl
+            name="team"
+            value={team}
+            onChange={handleTeamChange}
+            placeholder="Team"
+          ></FormControl>
+        </FormGroup>
+
+        <h3>Role</h3>
+        <FormGroup className="mb-3">
+          <FormControl
+            name="role"
+            value={role}
+            onChange={handleRoleChange}
+            placeholder="Role"
+          ></FormControl>
+        </FormGroup>
+
+        <h3>Start Date</h3>
+        <FormGroup className="mb-3">
+          <FormControl
+            name="startDate"
+            value={startDate}
+            onChange={handleStartDateChange}
+            placeholder="Start Date"
+          ></FormControl>
+        </FormGroup>
+
 
         <h3>Receipient wallet address</h3>
         <FormGroup className="mb-3">
