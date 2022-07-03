@@ -9,6 +9,7 @@
     "@nomiclabs/hardhat-etherscan": "^3.1.0",
     "@openzeppelin/contracts": "^4.7.0",
     "@superfluid-finance/sdk-core": "0.3.2",
+    "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "ethers": "5.6.2",
     "graphql": "16.2.0",
