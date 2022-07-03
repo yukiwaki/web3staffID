@@ -8,9 +8,7 @@ import {
   Spinner,
   Card
 } from "react-bootstrap";
-import {
-  mint,
-} from "./util/interact.js";
+import { mint } from "./util/interact.js";
 import "./createFlow.css";
 import { ethers } from "ethers";
 

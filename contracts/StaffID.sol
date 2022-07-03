@@ -18,9 +18,10 @@ contract StaffID is ERC721URIStorage  {
 
     function generateSvg(uint256 tokenId) public returns(string memory){
         bytes memory svg = abi.encodePacked(
-            '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350">',
+            '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 200">',
             '<style>.base { fill: white; font-family: serif; font-size: 14px; }</style>',
             '<rect width="100%" height="100%" fill="black" />',
+            '<image x="10%" y="10%" class="base" href="https://ipfs.io/ipfs/QmXDU64b4M4ndLi5DdrUm1k9uaFestjemvkuNM2R5Wbcen?filename=Logos%20(1).png" width ="150" />',
             '<text x="50%" y="40%" class="base" dominant-baseline="middle" text-anchor="middle">',"Warrior",'</text>',
             '<text x="50%" y="50%" class="base" dominant-baseline="middle" text-anchor="middle">', "Levels: ",getLevels(tokenId),'</text>',
             '</svg>'
